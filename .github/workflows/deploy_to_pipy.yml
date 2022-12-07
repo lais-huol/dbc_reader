@@ -1,0 +1,50 @@
+name: Deploy to PyPI
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
+      - name: Check output
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: echo $RELEASE_VERSION
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: pip install flake8 coverage twine
+
+      - name: Lint with flake8
+        run: flake8 . --count --max-complexity=11 --max-line-length=404 --statistics
+
+      # - name: Test with pytest and coverage
+      #   run: |
+      #     coverage run -m unittest tests/test_* \
+      #     && coverage report -m
+
+      - name: Build package
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: python setup.py validate_tag $RELEASE_VERSION && python setup.py sdist
+
+      - name: Deploy to PyPi
+        uses: pypa/gh-action-pypi-publish@v1.4.1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
