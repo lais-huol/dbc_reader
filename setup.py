@@ -1,7 +1,7 @@
 import sys
 from setuptools import setup
 
-version = '0.1.0'
+version = '0.1.1'
 
 if len(sys.argv) >= 3 and sys.argv[1] == 'validate_tag':
     if sys.argv[2] != version:
