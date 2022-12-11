@@ -1,0 +1,39 @@
+
+FILE DEFINITION
+filename: not a file
+header's length:   993
+number of fields:  30
+line size:         179
+
+FIELDS
+  (order,         name, type, size, decimals)
+       1, CNES        ,    C,    7,        0
+       2, CODUFMUN    ,    C,    6,        0
+       3, REGSAUDE    ,    C,    4,        0
+       4, MICR_REG    ,    C,    6,        0
+       5, DISTRSAN    ,    C,    4,        0
+       6, DISTRADM    ,    C,    4,        0
+       7, TPGESTAO    ,    C,    1,        0
+       8, PF_PJ       ,    C,    1,        0
+       9, CPF_CNPJ    ,    C,   14,        0
+      10, NIV_DEP     ,    C,    1,        0
+      11, CNPJ_MAN    ,    C,   14,        0
+      12, ESFERA_A    ,    C,    2,        0
+      13, RETENCAO    ,    C,    2,        0
+      14, ATIVIDAD    ,    C,    2,        0
+      15, NATUREZA    ,    C,    2,        0
+      16, CLIENTEL    ,    C,    2,        0
+      17, TP_UNID     ,    C,    2,        0
+      18, TURNO_AT    ,    C,    2,        0
+      19, NIV_HIER    ,    C,    2,        0
+      20, TERCEIRO    ,    C,    1,        0
+      21, COD_CEP     ,    C,    8,        0
+      22, VINC_SUS    ,    C,    1,        0
+      23, TP_PREST    ,    C,    2,        0
+      24, SGRUPHAB    ,    C,    4,        0
+      25, CMPT_INI    ,    C,    6,        0
+      26, CMPT_FIM    ,    C,    6,        0
+      27, DTPORTAR    ,    C,   10,        0
+      28, PORTARIA    ,    C,   50,        0
+      29, MAPORTAR    ,    C,    6,        0
+      30, COMPETEN    ,    C,    6,        0
