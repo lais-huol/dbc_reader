@@ -15,7 +15,7 @@ setup(**{
     "license": 'MIT',
     "author": 'Kelson da Costa Medeiros',
     "author_email": 'kelson.medeiros@lais.huol.ufrn.br',
-    "packages": ['dbf_reader'],
+    "packages": ['dbc_reader'],
     "include_package_data": True,
     "version": version,
     "download_url": f"https://github.com/lais-huol/dbc_reader/releases/tag/{version}",
