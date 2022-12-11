@@ -22,7 +22,7 @@ setup(**{
     "url": 'https://github.com/lais-huol/dbc_reader',
     "keywords": ['DBF', 'DBC', 'reader', 'datasus', ],
     "python_requires": '>=3.7.0',
-    "install_requires": ['dbf-reader>=0.2.1'],
+    "install_requires": ['dbf-reader>=0.2.2'],
     "classifiers": [
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
