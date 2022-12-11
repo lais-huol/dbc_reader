@@ -13,26 +13,20 @@ class DbcReader(DbfReader):
         _file_content = BytesIO(self._blast(file_object))
         super().__init__(file_object=_file_content, encoding=encoding, table_definition=table_definition)
 
-    def _blast(self, file_object: str) -> BytesIO:
-        if not os.path.exists(file_object):
-            raise Exception(f"Arquivo '{file_object}' não encontrado.")
-
-        _file_object = open(file_object, 'rb') if isinstance(file_object, str) else file_object
-
-        if _file_object.mode != 'rb':
-            raise IOError("File object need to be in binary readble mode ('rb')")
+    def _blast(self, filename: str) -> BytesIO:
+        if not os.path.exists(filename):
+            raise FileNotFoundError(f"Arquivo '{filename}' não encontrado.")
 
         blast_filename = 'blast-dbf.exe' if sys.platform == 'win32' else f'blast-dbf-{sys.platform}'
-        blast = Path(__file__).resolve() / 'bin' / blast_filename
-        command = f'{blast} < {_file_object}'
+        blast = Path(__file__).parent.resolve() / 'bin' / blast_filename
+        command = f'{blast} < {filename}'
 
         result = b''
-        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-        while True:
-            output = process.stdout.read()
-            if output == '' and process.poll() is not None or output == b'':
-                break
-            if output:
-                result += output.strip()
-
+        with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True) as process:
+            while True:
+                output = process.stdout.read()
+                if output == b'':
+                    break
+                if output:
+                    result += output.strip()
         return result
