@@ -1,7 +1,7 @@
 import sys
 from setuptools import setup
 
-version = '0.1.1'
+version = '0.1.2'
 
 if len(sys.argv) >= 3 and sys.argv[1] == 'validate_tag':
     if sys.argv[2] != version:
@@ -16,6 +16,7 @@ setup(**{
     "author": 'Kelson da Costa Medeiros',
     "author_email": 'kelson.medeiros@lais.huol.ufrn.br',
     "packages": ['dbc_reader'],
+    "package_data": {'dbc_reader': ['dbc_reader/bin/*']},
     "include_package_data": True,
     "version": version,
     "download_url": f"https://github.com/lais-huol/dbc_reader/releases/tag/{version}",
