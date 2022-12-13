@@ -1,6 +1,4 @@
 include LICENSE
 include MANIFEST.in
 include README.md
-recursive-include suap_ead/templates *
-recursive-include suap_ead/static *
-recursive-include suap_ead/migrations *
+recursive-include dbc_reader/bin *
