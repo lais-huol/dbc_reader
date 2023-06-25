@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3.8.17-slim-bullseye
 
 RUN pip install --upgrade pip
 
