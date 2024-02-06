@@ -1,4 +1,4 @@
-FROM python:3.8.17-slim-bullseye
+FROM python:3.12.1-slim-bookworm
 
 RUN pip install --upgrade pip
 
